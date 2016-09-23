@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 	"time"
 
@@ -50,7 +51,7 @@ func decoratedDate(date time.Time) string {
 	}
 }
 
-func main() {
+func show() {
 	var date time.Time
 	now := time.Now()
 	printHeader(now)
@@ -69,4 +70,9 @@ func main() {
 		}
 	}
 	fmt.Printf("\n")
+}
+
+func main() {
+	show()
+	os.Exit(0)
 }
