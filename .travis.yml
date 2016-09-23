@@ -7,6 +7,7 @@ go:
 install:
   - go get github.com/fatih/color
   - go get github.com/tcnksm/go-holidayjp
+  - go get github.com/golang/lint/golint
 
 before_script:
   - go vet
