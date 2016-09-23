@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strings"
@@ -51,21 +52,20 @@ func decoratedDate(date time.Time) string {
 	}
 }
 
-func show() {
-	var date time.Time
-	now := time.Now()
-	printHeader(now)
-	firstDate := beginningOfmonth(now)
-	lastDate := endOfMonth(now)
+func show(date time.Time) {
+	var calDate time.Time
+	printHeader(date)
+	firstDate := beginningOfmonth(date)
+	lastDate := endOfMonth(date)
 
 	wday := int(firstDate.Weekday())
 	fmt.Printf("%s", strings.Repeat(daySpace, wday))
 
 	for i := 1; i < lastDate.Day()+1; i++ {
-		date = time.Date(now.Year(), now.Month(), i, 0, 0, 0, 0, time.Local)
-		fmt.Printf("%2s ", decoratedDate(date))
+		calDate = time.Date(date.Year(), date.Month(), i, 0, 0, 0, 0, time.Local)
+		fmt.Printf("%2s ", decoratedDate(calDate))
 
-		if isNeedNewLine(date) {
+		if isNeedNewLine(calDate) {
 			fmt.Printf("\n")
 		}
 	}
@@ -73,6 +73,20 @@ func show() {
 }
 
 func main() {
-	show()
+	var err error
+	date := time.Now()
+
+	var specifyDate = flag.String("date", "", "Use yyyy-mm as the current date.")
+	flag.Parse()
+
+	if len(*specifyDate) > 0 {
+		date, err = time.Parse("2006-01", *specifyDate)
+		if err != nil {
+			fmt.Printf("Date parse error: %s\n", err)
+			os.Exit(1)
+		}
+	}
+
+	show(date)
 	os.Exit(0)
 }
