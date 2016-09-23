@@ -26,7 +26,7 @@ func beginningOfmonth(targetTime time.Time) time.Time {
 }
 
 func printHeader(targetTime time.Time) {
-	fmt.Printf("       %d %2d     \n", targetTime.Year(), targetTime.Month())
+	fmt.Printf("       %d %02d     \n", targetTime.Year(), targetTime.Month())
 	fmt.Printf("%s %s %s %s %s %s %s\n", red("日"), "月", "火", "水", "木", "金", blue("土"))
 }
 
