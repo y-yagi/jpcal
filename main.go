@@ -47,9 +47,9 @@ func decoratedDate(date time.Time) string {
 		return space + blue(date.Day())
 	} else if date.Weekday().String() == "Sunday" {
 		return space + red(date.Day())
-	} else {
-		return space + fmt.Sprint(date.Day())
 	}
+
+	return space + fmt.Sprint(date.Day())
 }
 
 func show(date time.Time) {
