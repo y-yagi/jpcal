@@ -62,7 +62,7 @@ func decoratedDate(date time.Time) string {
 	return space + decoratedDate
 }
 
-func show(date time.Time) {
+func showMonth(date time.Time) {
 	var calDate time.Time
 	printHeader(date)
 	firstDate := beginningOfMonth(date)
@@ -84,9 +84,11 @@ func show(date time.Time) {
 
 func main() {
 	var err error
+	var year time.Time
 	date := time.Now()
 
-	var specifyDate = flag.String("date", "", "Use yyyy-mm as the current date.")
+	var specifyDate = flag.String("date", "", "Use yyyy-mm as the date.")
+	var specifyYear = flag.String("year", "", "Use yyyy as the year.")
 	flag.Parse()
 
 	if len(*specifyDate) > 0 {
@@ -95,8 +97,22 @@ func main() {
 			fmt.Printf("Date parse error: %s\n", err)
 			os.Exit(1)
 		}
+	} else if len(*specifyYear) > 0 {
+		year, err = time.Parse("2006", *specifyYear)
+		if err != nil {
+			fmt.Printf("Year parse error: %s\n", err)
+			os.Exit(1)
+		}
 	}
 
-	show(date)
+	if len(*specifyYear) > 0 {
+		for i := 1; i < 13; i++ {
+			date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
+			showMonth(date)
+			fmt.Printf("\n")
+		}
+	} else {
+		showMonth(date)
+	}
 	os.Exit(0)
 }
