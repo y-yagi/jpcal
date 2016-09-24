@@ -21,7 +21,7 @@ func endOfMonth(targetTime time.Time) time.Time {
 	return time.Date(targetTime.Year(), targetTime.Month()+1, 1, 0, 0, 0, 0, time.Local).AddDate(0, 0, -1)
 }
 
-func beginningOfmonth(targetTime time.Time) time.Time {
+func beginningOfMonth(targetTime time.Time) time.Time {
 	return time.Date(targetTime.Year(), targetTime.Month(), 1, 0, 0, 0, 0, time.Local)
 }
 
@@ -57,7 +57,7 @@ func decoratedDate(date time.Time) string {
 func show(date time.Time) {
 	var calDate time.Time
 	printHeader(date)
-	firstDate := beginningOfmonth(date)
+	firstDate := beginningOfMonth(date)
 	lastDate := endOfMonth(date)
 
 	wday := int(firstDate.Weekday())
