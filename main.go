@@ -43,10 +43,12 @@ func decoratedDate(date time.Time) string {
 	_, err := holidayjp.Holiday(date)
 	if err == nil {
 		return space + red(date.Day())
-	} else if date.Weekday().String() == "Saturday" {
-		return space + blue(date.Day())
-	} else if date.Weekday().String() == "Sunday" {
+	}
+	if date.Weekday().String() == "Sunday" {
 		return space + red(date.Day())
+	}
+	if date.Weekday().String() == "Saturday" {
+		return space + blue(date.Day())
 	}
 
 	return space + fmt.Sprint(date.Day())
