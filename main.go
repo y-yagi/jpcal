@@ -12,10 +12,11 @@ import (
 )
 
 var (
-	red      = color.New(color.FgRed, color.Bold).SprintFunc()
-	blue     = color.New(color.FgBlue, color.Bold).SprintFunc()
-	white    = color.New(color.FgWhite).SprintFunc()
-	daySpace = "   "
+	red          = color.New(color.FgRed, color.Bold).SprintFunc()
+	blue         = color.New(color.FgBlue, color.Bold).SprintFunc()
+	white        = color.New(color.FgWhite).SprintFunc()
+	reverseVideo = color.New(color.ReverseVideo).SprintFunc()
+	daySpace     = "   "
 )
 
 func endOfMonth(targetTime time.Time) time.Time {
@@ -51,6 +52,11 @@ func decoratedDate(date time.Time) string {
 		decoratedDate = blue(date.Day())
 	} else {
 		decoratedDate = white(date.Day())
+	}
+
+	today := time.Now()
+	if (date.Year() == today.Year()) && (date.Month() == today.Month()) && date.Day() == today.Day() {
+		decoratedDate = reverseVideo(decoratedDate)
 	}
 
 	return space + decoratedDate
