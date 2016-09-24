@@ -12,8 +12,9 @@ import (
 )
 
 var (
-	red      = color.New(color.FgRed).SprintFunc()
+	red      = color.New(color.FgRed, color.Bold).SprintFunc()
 	blue     = color.New(color.FgBlue, color.Bold).SprintFunc()
+	white    = color.New(color.FgWhite).SprintFunc()
 	daySpace = "   "
 )
 
@@ -35,6 +36,7 @@ func isNeedNewLine(date time.Time) bool {
 }
 
 func decoratedDate(date time.Time) string {
+	var decoratedDate string
 	space := ""
 	if date.Day() < 10 {
 		space = " "
@@ -42,16 +44,16 @@ func decoratedDate(date time.Time) string {
 
 	_, err := holidayjp.Holiday(date)
 	if err == nil {
-		return space + red(date.Day())
-	}
-	if date.Weekday().String() == "Sunday" {
-		return space + red(date.Day())
-	}
-	if date.Weekday().String() == "Saturday" {
-		return space + blue(date.Day())
+		decoratedDate = red(date.Day())
+	} else if date.Weekday().String() == "Sunday" {
+		decoratedDate = red(date.Day())
+	} else if date.Weekday().String() == "Saturday" {
+		decoratedDate = blue(date.Day())
+	} else {
+		decoratedDate = white(date.Day())
 	}
 
-	return space + fmt.Sprint(date.Day())
+	return space + decoratedDate
 }
 
 func show(date time.Time) {
