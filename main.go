@@ -87,8 +87,8 @@ func main() {
 	var year time.Time
 	date := time.Now()
 
-	var specifyDate = flag.String("date", "", "Use yyyy-mm as the date.")
-	var specifyYear = flag.String("year", "", "Use yyyy as the year.")
+	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
+	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
 	flag.Parse()
 
 	if len(*specifyDate) > 0 {
