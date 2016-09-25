@@ -1,0 +1,22 @@
+# jpcal
+
+`jpcal` is a simple calendar command. It contains a Japanese holidays.
+
+[![Build Status](https://travis-ci.org/y-yagi/jpcal.svg?branch=master)](https://travis-ci.org/y-yagi/jpcal)
+
+## Installation
+
+Use `go get` to install this package:
+
+```bash
+$ go get github.com/y-yagi/jpcal
+```
+
+## Contribution
+
+1. Fork ([https://github.com/y-yagi/jpcal/fork](https://github.com/y-yagi/jpcal/fork))
+1. Create a feature branch
+1. Commit your changes
+1. Rebase your local changes against the master branch
+1. Run test suite with the `go test ./...` command and confirm that it passes
+1. Run `gofmt -s`
