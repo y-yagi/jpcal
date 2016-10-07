@@ -29,11 +29,6 @@ func beginningOfMonth(targetTime time.Time) time.Time {
 	return time.Date(targetTime.Year(), targetTime.Month(), 1, 0, 0, 0, 0, time.Local)
 }
 
-func printHeader(targetTime time.Time) {
-	fmt.Printf("     %d年 %02d月    \n", targetTime.Year(), targetTime.Month())
-	fmt.Printf("%s %s %s %s %s %s %s\n", red("日"), "月", "火", "水", "木", "金", blue("土"))
-}
-
 func setHeader(targetTime time.Time, calendar *[8]string) {
 	calendar[0] += fmt.Sprintf("     %d年 %02d月       ", targetTime.Year(), targetTime.Month())
 	calendar[1] += fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
@@ -67,26 +62,6 @@ func decoratedDate(date time.Time) string {
 	}
 
 	return space + decoratedDate
-}
-
-func showMonth(date time.Time) {
-	var calDate time.Time
-	printHeader(date)
-	firstDate := beginningOfMonth(date)
-	lastDate := endOfMonth(date)
-
-	wday := int(firstDate.Weekday())
-	fmt.Printf("%s", strings.Repeat(daySpace, wday))
-
-	for i := 1; i < lastDate.Day()+1; i++ {
-		calDate = time.Date(date.Year(), date.Month(), i, 0, 0, 0, 0, time.Local)
-		fmt.Printf("%2s ", decoratedDate(calDate))
-
-		if isNeedNewLine(calDate) {
-			fmt.Printf("\n")
-		}
-	}
-	fmt.Printf("\n")
 }
 
 func setCalendar(date time.Time, calendar *[8]string) {
@@ -149,8 +124,14 @@ func main() {
 	if len(*specifyYear) > 0 {
 		for i := 1; i < 13; i++ {
 			date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
-			showMonth(date)
-			fmt.Printf("\n")
+			setCalendar(date, &calendar)
+
+			if i%3 == 0 {
+				for i, element := range calendar {
+					fmt.Printf(element + "\n")
+					calendar[i] = ""
+				}
+			}
 		}
 	} else if *three {
 		setCalendar(date.AddDate(0, -1, 0), &calendar)
@@ -161,7 +142,10 @@ func main() {
 			fmt.Printf(element + "\n")
 		}
 	} else {
-		showMonth(date)
+		setCalendar(date, &calendar)
+		for _, element := range calendar {
+			fmt.Printf(element + "\n")
+		}
 	}
 	os.Exit(0)
 }
