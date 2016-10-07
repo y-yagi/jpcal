@@ -11,6 +11,9 @@ import (
 	"github.com/tcnksm/go-holidayjp"
 )
 
+// CalendarLine is calendar lines
+const CalendarLine = 8
+
 var (
 	red          = color.New(color.FgRed, color.Bold).SprintFunc()
 	blue         = color.New(color.FgBlue, color.Bold).SprintFunc()
@@ -27,9 +30,9 @@ func beginningOfMonth(targetTime time.Time) time.Time {
 	return time.Date(targetTime.Year(), targetTime.Month(), 1, 0, 0, 0, 0, time.Local)
 }
 
-func printHeader(targetTime time.Time) {
-	fmt.Printf("     %d年 %02d月     \n", targetTime.Year(), targetTime.Month())
-	fmt.Printf("%s %s %s %s %s %s %s\n", red("日"), "月", "火", "水", "木", "金", blue("土"))
+func setHeader(targetTime time.Time, calendar *[8]string) {
+	calendar[0] += fmt.Sprintf("     %d年 %02d月       ", targetTime.Year(), targetTime.Month())
+	calendar[1] += fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
 }
 
 func isNeedNewLine(date time.Time) bool {
@@ -62,33 +65,47 @@ func decoratedDate(date time.Time) string {
 	return space + decoratedDate
 }
 
-func showMonth(date time.Time) {
+func setCalendar(date time.Time, calendar *[8]string) {
 	var calDate time.Time
-	printHeader(date)
+
+	line := 2
+
+	setHeader(date, calendar)
 	firstDate := beginningOfMonth(date)
 	lastDate := endOfMonth(date)
 
 	wday := int(firstDate.Weekday())
-	fmt.Printf("%s", strings.Repeat(daySpace, wday))
+	calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, wday))
 
 	for i := 1; i < lastDate.Day()+1; i++ {
 		calDate = time.Date(date.Year(), date.Month(), i, 0, 0, 0, 0, time.Local)
-		fmt.Printf("%2s ", decoratedDate(calDate))
+		calendar[line] += fmt.Sprintf("%2s ", decoratedDate(calDate))
 
 		if isNeedNewLine(calDate) {
-			fmt.Printf("\n")
+			calendar[line] += "  "
+			line++
 		}
 	}
-	fmt.Printf("\n")
+
+	wday = int(lastDate.Weekday())
+	calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 6-wday))
+	calendar[line] += "  "
+
+	for line++; line < CalendarLine; line++ {
+		calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 7))
+	}
+	calendar[line-1] += "  "
 }
 
 func main() {
 	var err error
 	var year time.Time
 	date := time.Now()
+	var calendar [CalendarLine]string
 
 	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
 	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
+	var three = flag.Bool("3", false, "Display the previous, current and next month surrounding today.")
 	flag.Parse()
 
 	if len(*specifyDate) > 0 {
@@ -108,11 +125,28 @@ func main() {
 	if len(*specifyYear) > 0 {
 		for i := 1; i < 13; i++ {
 			date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
-			showMonth(date)
-			fmt.Printf("\n")
+			setCalendar(date, &calendar)
+
+			if i%3 == 0 {
+				for i, element := range calendar {
+					fmt.Printf(element + "\n")
+					calendar[i] = ""
+				}
+			}
+		}
+	} else if *three {
+		setCalendar(date.AddDate(0, -1, 0), &calendar)
+		setCalendar(date, &calendar)
+		setCalendar(date.AddDate(0, 1, 0), &calendar)
+
+		for _, element := range calendar {
+			fmt.Printf(element + "\n")
 		}
 	} else {
-		showMonth(date)
+		setCalendar(date, &calendar)
+		for _, element := range calendar {
+			fmt.Printf(element + "\n")
+		}
 	}
 	os.Exit(0)
 }
