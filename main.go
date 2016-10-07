@@ -11,7 +11,7 @@ import (
 	"github.com/tcnksm/go-holidayjp"
 )
 
-// CalendarLine is calendar lines
+// CalendarLine is calendar line number
 const CalendarLine = 8
 
 var (
@@ -30,7 +30,7 @@ func beginningOfMonth(targetTime time.Time) time.Time {
 	return time.Date(targetTime.Year(), targetTime.Month(), 1, 0, 0, 0, 0, time.Local)
 }
 
-func setHeader(targetTime time.Time, calendar *[8]string) {
+func setHeader(targetTime time.Time, calendar *[CalendarLine]string) {
 	calendar[0] += fmt.Sprintf("     %d年 %02d月       ", targetTime.Year(), targetTime.Month())
 	calendar[1] += fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
 }
@@ -65,7 +65,7 @@ func decoratedDate(date time.Time) string {
 	return space + decoratedDate
 }
 
-func setCalendar(date time.Time, calendar *[8]string) {
+func setCalendar(date time.Time, calendar *[CalendarLine]string) {
 	var calDate time.Time
 
 	line := 2
