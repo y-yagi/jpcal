@@ -11,6 +11,8 @@ import (
 	"github.com/tcnksm/go-holidayjp"
 )
 
+const CalendarLine = 8
+
 var (
 	red          = color.New(color.FgRed, color.Bold).SprintFunc()
 	blue         = color.New(color.FgBlue, color.Bold).SprintFunc()
@@ -28,8 +30,13 @@ func beginningOfMonth(targetTime time.Time) time.Time {
 }
 
 func printHeader(targetTime time.Time) {
-	fmt.Printf("     %d年 %02d月     \n", targetTime.Year(), targetTime.Month())
+	fmt.Printf("     %d年 %02d月    \n", targetTime.Year(), targetTime.Month())
 	fmt.Printf("%s %s %s %s %s %s %s\n", red("日"), "月", "火", "水", "木", "金", blue("土"))
+}
+
+func setHeader(targetTime time.Time, calendar *[8]string) {
+	calendar[0] += fmt.Sprintf("     %d年 %02d月       ", targetTime.Year(), targetTime.Month())
+	calendar[1] += fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
 }
 
 func isNeedNewLine(date time.Time) bool {
@@ -82,10 +89,43 @@ func showMonth(date time.Time) {
 	fmt.Printf("\n")
 }
 
+func setCalendar(date time.Time, calendar *[8]string) {
+	var calDate time.Time
+
+	line := 2
+
+	setHeader(date, calendar)
+	firstDate := beginningOfMonth(date)
+	lastDate := endOfMonth(date)
+
+	wday := int(firstDate.Weekday())
+	calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, wday))
+
+	for i := 1; i < lastDate.Day()+1; i++ {
+		calDate = time.Date(date.Year(), date.Month(), i, 0, 0, 0, 0, time.Local)
+		calendar[line] += fmt.Sprintf("%2s ", decoratedDate(calDate))
+
+		if isNeedNewLine(calDate) {
+			calendar[line] += "  "
+			line += 1
+		}
+	}
+
+	wday = int(lastDate.Weekday())
+	calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 6-wday))
+	calendar[line] += "  "
+
+	for line += 1; line < CalendarLine; line++ {
+		calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 7))
+	}
+	calendar[line-1] += "  "
+}
+
 func main() {
 	var err error
 	var year time.Time
 	date := time.Now()
+	var calendar [CalendarLine]string
 
 	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
 	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
@@ -113,11 +153,13 @@ func main() {
 			fmt.Printf("\n")
 		}
 	} else if *three {
-		showMonth(date.AddDate(0, -1, 0))
-		fmt.Printf("\n")
-		showMonth(date)
-		fmt.Printf("\n")
-		showMonth(date.AddDate(0, 1, 0))
+		setCalendar(date.AddDate(0, -1, 0), &calendar)
+		setCalendar(date, &calendar)
+		setCalendar(date.AddDate(0, 1, 0), &calendar)
+
+		for _, element := range calendar {
+			fmt.Printf(element + "\n")
+		}
 	} else {
 		showMonth(date)
 	}
