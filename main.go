@@ -97,6 +97,13 @@ func setCalendar(date time.Time, calendar *[CalendarLine]string) {
 	calendar[line-1] += "  "
 }
 
+func showCalendar(calendar *[CalendarLine]string) {
+	for i, element := range calendar {
+		fmt.Printf(element + "\n")
+		calendar[i] = ""
+	}
+}
+
 func main() {
 	var err error
 	var year time.Time
@@ -128,25 +135,17 @@ func main() {
 			setCalendar(date, &calendar)
 
 			if i%3 == 0 {
-				for i, element := range calendar {
-					fmt.Printf(element + "\n")
-					calendar[i] = ""
-				}
+				showCalendar(&calendar)
 			}
 		}
 	} else if *three {
 		setCalendar(date.AddDate(0, -1, 0), &calendar)
 		setCalendar(date, &calendar)
 		setCalendar(date.AddDate(0, 1, 0), &calendar)
-
-		for _, element := range calendar {
-			fmt.Printf(element + "\n")
-		}
+		showCalendar(&calendar)
 	} else {
 		setCalendar(date, &calendar)
-		for _, element := range calendar {
-			fmt.Printf(element + "\n")
-		}
+		showCalendar(&calendar)
 	}
 	os.Exit(0)
 }
