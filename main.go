@@ -11,6 +11,7 @@ import (
 	"github.com/tcnksm/go-holidayjp"
 )
 
+// CalendarLine is calendar lines
 const CalendarLine = 8
 
 var (
@@ -82,7 +83,7 @@ func setCalendar(date time.Time, calendar *[8]string) {
 
 		if isNeedNewLine(calDate) {
 			calendar[line] += "  "
-			line += 1
+			line++
 		}
 	}
 
@@ -90,7 +91,7 @@ func setCalendar(date time.Time, calendar *[8]string) {
 	calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 6-wday))
 	calendar[line] += "  "
 
-	for line += 1; line < CalendarLine; line++ {
+	for line++; line < CalendarLine; line++ {
 		calendar[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 7))
 	}
 	calendar[line-1] += "  "
