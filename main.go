@@ -89,6 +89,7 @@ func main() {
 
 	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
 	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
+	var three = flag.Bool("3", false, "Display the previous, current and next month surrounding today.")
 	flag.Parse()
 
 	if len(*specifyDate) > 0 {
@@ -111,6 +112,12 @@ func main() {
 			showMonth(date)
 			fmt.Printf("\n")
 		}
+	} else if *three {
+		showMonth(date.AddDate(0, -1, 0))
+		fmt.Printf("\n")
+		showMonth(date)
+		fmt.Printf("\n")
+		showMonth(date.AddDate(0, 1, 0))
 	} else {
 		showMonth(date)
 	}
