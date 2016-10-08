@@ -59,7 +59,7 @@ func (calendar *Calendar) decoratedDate(date time.Time) string {
 	return space + decoratedDate
 }
 
-func (calendar *Calendar) adjustBody(line int) {
+func (calendar *Calendar) adjustSpace(line int) {
 	calendar.Body[line] += "  "
 }
 
@@ -81,19 +81,19 @@ func (calendar *Calendar) Generate(date time.Time) {
 		calendar.Body[line] += fmt.Sprintf("%2s ", calendar.decoratedDate(calDate))
 
 		if calendar.isNeedNewLine(calDate) {
-			calendar.adjustBody(line)
+			calendar.adjustSpace(line)
 			line++
 		}
 	}
 
 	wday = int(lastDate.Weekday())
 	calendar.Body[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 6-wday))
-	calendar.adjustBody(line)
+	calendar.adjustSpace(line)
 
 	for line++; line < len(calendar.Body); line++ {
 		calendar.Body[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 7))
 	}
-	calendar.adjustBody(line - 1)
+	calendar.adjustSpace(line - 1)
 }
 
 // Show calendar
