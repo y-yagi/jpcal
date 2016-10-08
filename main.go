@@ -22,14 +22,6 @@ var (
 	daySpace     = "   "
 )
 
-func endOfMonth(targetTime time.Time) time.Time {
-	return time.Date(targetTime.Year(), targetTime.Month()+1, 1, 0, 0, 0, 0, time.Local).AddDate(0, 0, -1)
-}
-
-func beginningOfMonth(targetTime time.Time) time.Time {
-	return time.Date(targetTime.Year(), targetTime.Month(), 1, 0, 0, 0, 0, time.Local)
-}
-
 func setHeader(targetTime time.Time, calendar *[CalendarLine]string) {
 	calendar[0] += fmt.Sprintf("     %d年 %02d月       ", targetTime.Year(), targetTime.Month())
 	calendar[1] += fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
