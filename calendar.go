@@ -9,6 +9,7 @@ import (
 	"github.com/tcnksm/go-holidayjp"
 )
 
+// Calendar struct
 type Calendar struct {
 	DateHeader string
 	WeekHeader string
@@ -58,6 +59,7 @@ func (calendar *Calendar) decoratedDate(date time.Time) string {
 	return space + decoratedDate
 }
 
+// Generate calendar
 func (calendar *Calendar) Generate(date time.Time) {
 	var calDate time.Time
 
@@ -90,6 +92,7 @@ func (calendar *Calendar) Generate(date time.Time) {
 	calendar.Body[line-1] += "  "
 }
 
+// Show calendar
 func (calendar *Calendar) Show() {
 	fmt.Printf(calendar.DateHeader + "\n")
 	fmt.Printf(calendar.WeekHeader + "\n")
@@ -98,10 +101,11 @@ func (calendar *Calendar) Show() {
 	}
 }
 
+// Clear calendar
 func (calendar *Calendar) Clear() {
 	calendar.DateHeader = ""
 	calendar.WeekHeader = ""
-	for i, _ := range calendar.Body {
+	for i := range calendar.Body {
 		calendar.Body[i] = ""
 	}
 }
