@@ -11,26 +11,29 @@ func main() {
 	const version = "1.0.0"
 
 	var err error
-	var showVersion *bool
+	var showVersion bool
 	var year time.Time
 	var calendar Calendar
+	var specifyDate string
+	var specifyYear string
+	var three bool
 
 	date := time.Now()
 
-	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
-	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
-	var three = flag.Bool("3", false, "Display the previous, current and next month surrounding today.")
-	showVersion = flag.Bool("v", false, "show version")
+	flag.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
+	flag.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
+	flag.BoolVar(&three, "3", false, "Display the previous, current and next month surrounding today.")
+	flag.BoolVar(&showVersion, "v", false, "show version")
 	flag.Parse()
 
-	if *showVersion {
+	if showVersion {
 		fmt.Println("version:", version)
 		os.Exit(0)
 		return
 	}
 
-	if len(*specifyYear) > 0 {
-		year, err = time.Parse("2006", *specifyYear)
+	if len(specifyYear) > 0 {
+		year, err = time.Parse("2006", specifyYear)
 		if err != nil {
 			fmt.Printf("Year parse error: %s\n", err)
 			os.Exit(1)
@@ -45,14 +48,14 @@ func main() {
 				calendar.Clear()
 			}
 		}
-	} else if *three {
+	} else if three {
 		calendar.Generate(date.AddDate(0, -1, 0))
 		calendar.Generate(date)
 		calendar.Generate(date.AddDate(0, 1, 0))
 		calendar.Show()
 	} else {
-		if len(*specifyDate) > 0 {
-			date, err = time.Parse("2006-01", *specifyDate)
+		if len(specifyDate) > 0 {
+			date, err = time.Parse("2006-01", specifyDate)
 			if err != nil {
 				fmt.Printf("Date parse error: %s\n", err)
 				os.Exit(1)
