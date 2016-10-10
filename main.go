@@ -18,21 +18,13 @@ func main() {
 	var three = flag.Bool("3", false, "Display the previous, current and next month surrounding today.")
 	flag.Parse()
 
-	if len(*specifyDate) > 0 {
-		date, err = time.Parse("2006-01", *specifyDate)
-		if err != nil {
-			fmt.Printf("Date parse error: %s\n", err)
-			os.Exit(1)
-		}
-	} else if len(*specifyYear) > 0 {
+	if len(*specifyYear) > 0 {
 		year, err = time.Parse("2006", *specifyYear)
 		if err != nil {
 			fmt.Printf("Year parse error: %s\n", err)
 			os.Exit(1)
 		}
-	}
 
-	if len(*specifyYear) > 0 {
 		for i := 1; i < 13; i++ {
 			date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
 			calendar.Generate(date)
@@ -48,6 +40,14 @@ func main() {
 		calendar.Generate(date.AddDate(0, 1, 0))
 		calendar.Show()
 	} else {
+		if len(*specifyDate) > 0 {
+			date, err = time.Parse("2006-01", *specifyDate)
+			if err != nil {
+				fmt.Printf("Date parse error: %s\n", err)
+				os.Exit(1)
+			}
+		}
+
 		calendar.Generate(date)
 		calendar.Show()
 	}
