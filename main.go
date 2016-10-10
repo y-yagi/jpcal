@@ -8,15 +8,26 @@ import (
 )
 
 func main() {
+	const version = "1.0.0"
+
 	var err error
+	var showVersion *bool
 	var year time.Time
-	date := time.Now()
 	var calendar Calendar
+
+	date := time.Now()
 
 	var specifyDate = flag.String("d", "", "Use yyyy-mm as the date.")
 	var specifyYear = flag.String("y", "", "Use yyyy as the year.")
 	var three = flag.Bool("3", false, "Display the previous, current and next month surrounding today.")
+	showVersion = flag.Bool("v", false, "show version")
 	flag.Parse()
+
+	if *showVersion {
+		fmt.Println("version:", version)
+		os.Exit(0)
+		return
+	}
 
 	if len(*specifyYear) > 0 {
 		year, err = time.Parse("2006", *specifyYear)
