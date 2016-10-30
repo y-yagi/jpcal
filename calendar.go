@@ -19,7 +19,7 @@ type Calendar struct {
 var (
 	red          = color.New(color.FgRed, color.Bold).SprintFunc()
 	blue         = color.New(color.FgBlue, color.Bold).SprintFunc()
-	white        = color.New(color.FgWhite).SprintFunc()
+	white        = color.New(color.FgHiWhite).SprintFunc()
 	reverseVideo = color.New(color.ReverseVideo).SprintFunc()
 	daySpace     = "   "
 )
