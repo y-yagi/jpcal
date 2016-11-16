@@ -21,28 +21,28 @@ func TestGenerate(t *testing.T) {
 		t.Errorf("Expect calendar.WeekHeader is %s, but %s", expect, calendar.WeekHeader)
 	}
 
-	expect = fmt.Sprintf("%s %s %s %s  %s  %s  %s   ", "  ", "  ", "  ", "  ", white("1"), white("2"), blue("3"))
+	expect = fmt.Sprintf("%s %s %s %s  %s  %s  %s   ", "  ", "  ", "  ", "  ", "1", "2", blue("3"))
 	if calendar.Body[0] != expect {
 		t.Errorf("Expect calendar.Body[0] is %s, but %s", expect, calendar.Body[0])
 	}
 
-	expect = fmt.Sprintf(" %s  %s  %s  %s  %s  %s %s   ", red("4"), white("5"), white("6"), white("7"), white("8"), white("9"), blue("10"))
+	expect = fmt.Sprintf(" %s  %s  %s  %s  %s  %s %s   ", red("4"), "5", "6", "7", "8", "9", blue("10"))
 	if calendar.Body[1] != expect {
 		t.Errorf("Expect calendar.Body[1] is %s, but %s", expect, calendar.Body[1])
 	}
 
-	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("11"), white("12"), white("13"), white("14"), white("15"), white("16"), blue("17"))
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("11"), "12", "13", "14", "15", "16", blue("17"))
 	if calendar.Body[2] != expect {
 		t.Errorf("Expect calendar.Body[2] is %s, but %s", expect, calendar.Body[2])
 	}
 
 	// 2016-09-19 and 09-22 is holiday
-	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("18"), red("19"), white("20"), white("21"), red("22"), white("23"), blue("24"))
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("18"), red("19"), "20", "21", red("22"), "23", blue("24"))
 	if calendar.Body[3] != expect {
 		t.Errorf("Expect calendar.Body[3] is %s, but %s", expect, calendar.Body[3])
 	}
 
-	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("25"), white("26"), white("27"), white("28"), white("29"), white("30"), "  ")
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("25"), "26", "27", "28", "29", "30", "  ")
 	if calendar.Body[4] != expect {
 		t.Errorf("Expect calendar.Body[4] is %s, but %s", expect, calendar.Body[4])
 	}
