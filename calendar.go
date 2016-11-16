@@ -19,7 +19,6 @@ type Calendar struct {
 var (
 	red          = color.New(color.FgRed, color.Bold).SprintFunc()
 	blue         = color.New(color.FgBlue, color.Bold).SprintFunc()
-	white        = color.New(color.FgHiWhite).SprintFunc()
 	reverseVideo = color.New(color.ReverseVideo).SprintFunc()
 	daySpace     = "   "
 )
@@ -48,7 +47,7 @@ func (calendar *Calendar) decoratedDate(date time.Time) string {
 	} else if date.Weekday().String() == "Saturday" {
 		decoratedDate = blue(date.Day())
 	} else {
-		decoratedDate = white(date.Day())
+		decoratedDate = fmt.Sprintf("%d", date.Day())
 	}
 
 	today := time.Now()
