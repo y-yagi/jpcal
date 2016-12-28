@@ -38,17 +38,31 @@ func showThreeMonthsCalendar() {
 	calendar.Show()
 }
 
+func showOneMonthCalendar(specifyDate string) {
+	var calendar Calendar
+	var err error
+
+	date := time.Now()
+
+	if len(specifyDate) > 0 {
+		date, err = time.Parse("2006-01", specifyDate)
+		if err != nil {
+			fmt.Printf("Date parse error: %s\n", err)
+			os.Exit(1)
+		}
+	}
+
+	calendar.Generate(date)
+	calendar.Show()
+}
+
 func main() {
 	const version = "1.0.0"
 
-	var err error
 	var showVersion bool
-	var calendar Calendar
 	var specifyDate string
 	var specifyYear string
 	var three bool
-
-	date := time.Now()
 
 	flag.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
 	flag.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
@@ -71,16 +85,8 @@ func main() {
 	} else if three {
 		showThreeMonthsCalendar()
 	} else {
-		if len(specifyDate) > 0 {
-			date, err = time.Parse("2006-01", specifyDate)
-			if err != nil {
-				fmt.Printf("Date parse error: %s\n", err)
-				os.Exit(1)
-			}
-		}
-
-		calendar.Generate(date)
-		calendar.Show()
+		showOneMonthCalendar(specifyDate)
 	}
+
 	os.Exit(0)
 }
