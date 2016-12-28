@@ -7,12 +7,32 @@ import (
 	"time"
 )
 
+func showYearCalendar(specifyYear string) {
+	var calendar Calendar
+	date := time.Now()
+
+	year, err := time.Parse("2006", specifyYear)
+	if err != nil {
+		fmt.Printf("Year parse error: %s\n", err)
+		os.Exit(1)
+	}
+
+	for i := 1; i < 13; i++ {
+		date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
+		calendar.Generate(date)
+
+		if i%3 == 0 {
+			calendar.Show()
+			calendar.Clear()
+		}
+	}
+}
+
 func main() {
 	const version = "1.0.0"
 
 	var err error
 	var showVersion bool
-	var year time.Time
 	var calendar Calendar
 	var specifyDate string
 	var specifyYear string
@@ -37,21 +57,7 @@ func main() {
 	}
 
 	if len(specifyYear) > 0 {
-		year, err = time.Parse("2006", specifyYear)
-		if err != nil {
-			fmt.Printf("Year parse error: %s\n", err)
-			os.Exit(1)
-		}
-
-		for i := 1; i < 13; i++ {
-			date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
-			calendar.Generate(date)
-
-			if i%3 == 0 {
-				calendar.Show()
-				calendar.Clear()
-			}
-		}
+		showYearCalendar(specifyYear)
 	} else if three {
 		calendar.Generate(date.AddDate(0, -1, 0))
 		calendar.Generate(date)
