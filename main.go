@@ -32,6 +32,10 @@ func main() {
 		return
 	}
 
+	if len(flag.Args()) == 1 {
+		specifyYear = flag.Args()[0]
+	}
+
 	if len(specifyYear) > 0 {
 		year, err = time.Parse("2006", specifyYear)
 		if err != nil {
