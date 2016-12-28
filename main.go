@@ -28,6 +28,16 @@ func showYearCalendar(specifyYear string) {
 	}
 }
 
+func showThreeMonthsCalendar() {
+	var calendar Calendar
+	date := time.Now()
+
+	calendar.Generate(date.AddDate(0, -1, 0))
+	calendar.Generate(date)
+	calendar.Generate(date.AddDate(0, 1, 0))
+	calendar.Show()
+}
+
 func main() {
 	const version = "1.0.0"
 
@@ -59,10 +69,7 @@ func main() {
 	if len(specifyYear) > 0 {
 		showYearCalendar(specifyYear)
 	} else if three {
-		calendar.Generate(date.AddDate(0, -1, 0))
-		calendar.Generate(date)
-		calendar.Generate(date.AddDate(0, 1, 0))
-		calendar.Show()
+		showThreeMonthsCalendar()
 	} else {
 		if len(specifyDate) > 0 {
 			date, err = time.Parse("2006-01", specifyDate)
