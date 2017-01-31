@@ -32,9 +32,9 @@ func showThreeMonthsCalendar() {
 	var calendar Calendar
 	date := time.Now()
 
-	calendar.Generate(date.AddDate(0, -1, 0))
+	calendar.Generate(beginningOfMonth(date).AddDate(0, 0, -1))
 	calendar.Generate(date)
-	calendar.Generate(date.AddDate(0, 1, 0))
+	calendar.Generate(endOfMonth(date).AddDate(0, 0, 1))
 	calendar.Show()
 }
 
