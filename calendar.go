@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"strings"
 	"time"
 
@@ -96,11 +97,11 @@ func (calendar *Calendar) Generate(date time.Time) {
 }
 
 // Show calendar
-func (calendar *Calendar) Show() {
-	fmt.Printf(calendar.DateHeader + "\n")
-	fmt.Printf(calendar.WeekHeader + "\n")
+func (calendar *Calendar) Show(w io.Writer) {
+	fmt.Fprintf(w, calendar.DateHeader+"\n")
+	fmt.Fprintf(w, calendar.WeekHeader+"\n")
 	for _, element := range calendar.Body {
-		fmt.Printf(element + "\n")
+		fmt.Fprintf(w, element+"\n")
 	}
 }
 
