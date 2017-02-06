@@ -22,7 +22,7 @@ func showYearCalendar(specifyYear string) {
 		calendar.Generate(date)
 
 		if i%3 == 0 {
-			calendar.Show()
+			calendar.Show(os.Stdout)
 			calendar.Clear()
 		}
 	}
@@ -35,7 +35,7 @@ func showThreeMonthsCalendar() {
 	calendar.Generate(beginningOfMonth(date).AddDate(0, 0, -1))
 	calendar.Generate(date)
 	calendar.Generate(endOfMonth(date).AddDate(0, 0, 1))
-	calendar.Show()
+	calendar.Show(os.Stdout)
 }
 
 func showOneMonthCalendar(specifyDate string) {
@@ -53,7 +53,7 @@ func showOneMonthCalendar(specifyDate string) {
 	}
 
 	calendar.Generate(date)
-	calendar.Show()
+	calendar.Show(os.Stdout)
 }
 
 func main() {
