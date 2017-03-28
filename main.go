@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -61,11 +62,13 @@ func main() {
 
 	var showVersion bool
 	var specifyDate string
-	var specifyYear string
+	var showYear bool
 	var three bool
 
+	specifyYear := strconv.Itoa(time.Now().Year())
+
 	flag.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
-	flag.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
+	flag.BoolVar(&showYear, "y", false, "Use yyyy as the year.")
 	flag.BoolVar(&three, "3", false, "Display the previous, current and next month surrounding today.")
 	flag.BoolVar(&showVersion, "v", false, "show version")
 	flag.Parse()
@@ -78,9 +81,15 @@ func main() {
 
 	if len(flag.Args()) == 1 {
 		specifyYear = flag.Args()[0]
+		showYearCalendar(specifyYear)
+		os.Exit(0)
 	}
 
-	if len(specifyYear) > 0 {
+	if showYear {
+		if len(flag.Args()) > 1 {
+			specifyYear = flag.Args()[1]
+		}
+
 		showYearCalendar(specifyYear)
 	} else if three {
 		showThreeMonthsCalendar()
