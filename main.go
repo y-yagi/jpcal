@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -62,13 +63,15 @@ func run(args []string, out, err io.Writer) int {
 
 	var showVersion bool
 	var specifyDate string
-	var specifyYear string
+	var showYear bool
 	var three bool
+
+	specifyYear := strconv.Itoa(time.Now().Year())
 
 	flags := flag.NewFlagSet("jpcal", flag.ExitOnError)
 	flags.SetOutput(err)
 	flags.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
-	flags.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
+	flags.BoolVar(&showYear, "y", false, "Use yyyy as the year.")
 	flags.BoolVar(&three, "3", false, "Display the previous, current and next month surrounding today.")
 	flags.BoolVar(&showVersion, "v", false, "show version")
 	flags.Parse(args[1:])
@@ -80,9 +83,15 @@ func run(args []string, out, err io.Writer) int {
 
 	if len(flag.Args()) == 1 {
 		specifyYear = flag.Args()[0]
+		showYearCalendar(specifyYear, out)
+		return 0
 	}
 
-	if len(specifyYear) > 0 {
+	if showYear {
+		if len(flag.Args()) > 1 {
+			specifyYear = flag.Args()[1]
+		}
+
 		showYearCalendar(specifyYear, out)
 	} else if three {
 		showThreeMonthsCalendar(out)
