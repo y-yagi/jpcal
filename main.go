@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"time"
 )
 
-func showYearCalendar(specifyYear string) {
+func showYearCalendar(specifyYear string, w io.Writer) {
 	var calendar Calendar
 	date := time.Now()
 
@@ -22,23 +23,23 @@ func showYearCalendar(specifyYear string) {
 		calendar.Generate(date)
 
 		if i%3 == 0 {
-			calendar.Show(os.Stdout)
+			calendar.Show(w)
 			calendar.Clear()
 		}
 	}
 }
 
-func showThreeMonthsCalendar() {
+func showThreeMonthsCalendar(w io.Writer) {
 	var calendar Calendar
 	date := time.Now()
 
 	calendar.Generate(beginningOfMonth(date).AddDate(0, 0, -1))
 	calendar.Generate(date)
 	calendar.Generate(endOfMonth(date).AddDate(0, 0, 1))
-	calendar.Show(os.Stdout)
+	calendar.Show(w)
 }
 
-func showOneMonthCalendar(specifyDate string) {
+func showOneMonthCalendar(specifyDate string, w io.Writer) {
 	var calendar Calendar
 	var err error
 
@@ -53,10 +54,10 @@ func showOneMonthCalendar(specifyDate string) {
 	}
 
 	calendar.Generate(date)
-	calendar.Show(os.Stdout)
+	calendar.Show(w)
 }
 
-func main() {
+func run(args []string, out, err io.Writer) int {
 	const version = "1.0.0"
 
 	var showVersion bool
@@ -64,16 +65,17 @@ func main() {
 	var specifyYear string
 	var three bool
 
-	flag.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
-	flag.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
-	flag.BoolVar(&three, "3", false, "Display the previous, current and next month surrounding today.")
-	flag.BoolVar(&showVersion, "v", false, "show version")
-	flag.Parse()
+	flags := flag.NewFlagSet("jpcal", flag.ExitOnError)
+	flags.SetOutput(err)
+	flags.StringVar(&specifyDate, "d", "", "Use yyyy-mm as the date.")
+	flags.StringVar(&specifyYear, "y", "", "Use yyyy as the year.")
+	flags.BoolVar(&three, "3", false, "Display the previous, current and next month surrounding today.")
+	flags.BoolVar(&showVersion, "v", false, "show version")
+	flags.Parse(args[1:])
 
 	if showVersion {
-		fmt.Println("version:", version)
-		os.Exit(0)
-		return
+		fmt.Fprintln(out, "version:", version)
+		return 0
 	}
 
 	if len(flag.Args()) == 1 {
@@ -81,12 +83,16 @@ func main() {
 	}
 
 	if len(specifyYear) > 0 {
-		showYearCalendar(specifyYear)
+		showYearCalendar(specifyYear, out)
 	} else if three {
-		showThreeMonthsCalendar()
+		showThreeMonthsCalendar(out)
 	} else {
-		showOneMonthCalendar(specifyDate)
+		showOneMonthCalendar(specifyDate, out)
 	}
 
-	os.Exit(0)
+	return 0
+}
+
+func main() {
+	os.Exit(run(os.Args, os.Stdout, os.Stderr))
 }
