@@ -81,3 +81,18 @@ func TestRunWithThree(t *testing.T) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)
 	}
 }
+
+func TestRunWithSpecifyDate(t *testing.T) {
+	out, err := new(bytes.Buffer), new(bytes.Buffer)
+	args := strings.Split("jpcal -d 2017-04", " ")
+
+	status := run(args, out, err)
+	if status != 0 {
+		t.Errorf("Expect status is 0, but %d", status)
+	}
+
+	expected := "2017年 04月"
+	if !strings.Contains(out.String(), expected) {
+		t.Errorf("Expect out is %q, but %q", out.String(), expected)
+	}
+}
