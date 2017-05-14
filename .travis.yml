@@ -1,13 +1,12 @@
 language: go
 
 go:
-  - 1.6
   - 1.7
 
 install:
-  - go get github.com/fatih/color
-  - go get github.com/tcnksm/go-holidayjp
-  - go get github.com/golang/lint/golint
+  - go get -u github.com/golang/dep/cmd/dep
+  - go get -u github.com/golang/lint/golint
+  - dep ensure
 
 before_script:
   - go vet
