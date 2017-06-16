@@ -81,15 +81,9 @@ func run(args []string, out, err io.Writer) int {
 		return 0
 	}
 
-	if len(flag.Args()) == 1 {
-		specifyYear = flag.Args()[0]
-		showYearCalendar(specifyYear, out)
-		return 0
-	}
-
 	if showYear {
-		if len(flag.Args()) > 1 {
-			specifyYear = flag.Args()[1]
+		if len(args) > 2 {
+			specifyYear = args[2]
 		}
 
 		showYearCalendar(specifyYear, out)
