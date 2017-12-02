@@ -8,6 +8,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/tcnksm/go-holidayjp"
+	"github.com/y-yagi/goext/timeext"
 )
 
 // Calendar struct
@@ -68,8 +69,8 @@ func (calendar *Calendar) Generate(date time.Time) {
 	var calDate time.Time
 
 	calendar.setHeader(date)
-	firstDate := beginningOfMonth(date)
-	lastDate := endOfMonth(date)
+	firstDate := timeext.BeginningOfMonth(date)
+	lastDate := timeext.EndOfMonth(date)
 
 	wday := int(firstDate.Weekday())
 	calendar.Body[0] += fmt.Sprintf("%s", strings.Repeat(daySpace, wday))

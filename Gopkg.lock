@@ -27,6 +27,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/y-yagi/goext"
+  packages = ["timeext"]
+  revision = "0c562708d18a124f202f8b4e7853a57943d9ee73"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "429f518978ab01db8bb6f44b66785088e7fba58b"
@@ -40,6 +46,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6c0864ab609cb0aecb332d6c11ddaaa78097034e0b474c4bb8baf699fb857218"
+  inputs-digest = "c089ccf240c409be918725011f92e79c5cf46f8e7e532f426e81c2627f1c2bce"
   solver-name = "gps-cdcl"
   solver-version = 1
