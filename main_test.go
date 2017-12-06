@@ -6,6 +6,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/y-yagi/goext/timeext"
 )
 
 func TestRunVersion(t *testing.T) {
@@ -85,13 +87,13 @@ func TestRunWithThree(t *testing.T) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)
 	}
 
-	lastMonth := beginningOfMonth(date).AddDate(0, 0, -1)
+	lastMonth := timeext.BeginningOfMonth(date).AddDate(0, 0, -1)
 	expected = fmt.Sprintf("%d年 %02d月", lastMonth.Year(), lastMonth.Month())
 	if !strings.Contains(out.String(), expected) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)
 	}
 
-	nextMonth := beginningOfMonth(date).AddDate(0, 0, 1)
+	nextMonth := timeext.BeginningOfMonth(date).AddDate(0, 0, 1)
 	expected = fmt.Sprintf("%d年 %02d月", nextMonth.Year(), nextMonth.Month())
 	if !strings.Contains(out.String(), expected) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)

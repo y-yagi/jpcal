@@ -7,6 +7,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/y-yagi/goext/timeext"
 )
 
 func showYearCalendar(specifyYear string, w io.Writer) {
@@ -34,9 +36,9 @@ func showThreeMonthsCalendar(w io.Writer) {
 	var calendar Calendar
 	date := time.Now()
 
-	calendar.Generate(beginningOfMonth(date).AddDate(0, 0, -1))
+	calendar.Generate(timeext.BeginningOfMonth(date).AddDate(0, 0, -1))
 	calendar.Generate(date)
-	calendar.Generate(endOfMonth(date).AddDate(0, 0, 1))
+	calendar.Generate(timeext.EndOfMonth(date).AddDate(0, 0, 1))
 	calendar.Show(w)
 }
 

@@ -28,3 +28,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/tcnksm/go-holidayjp"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/y-yagi/goext"
