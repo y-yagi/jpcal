@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/golang/lint"
   packages = [".","golint"]
-  revision = "f635bddafc7154957bd70209ee858a4b97e64a9b"
+  revision = "e14d9b0f1d332b1420c1ffa32562ad2dc84d645d"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -35,25 +35,25 @@
   branch = "master"
   name = "github.com/y-yagi/goext"
   packages = ["timeext"]
-  revision = "0c562708d18a124f202f8b4e7853a57943d9ee73"
+  revision = "fd0b1e87eb0981c2c24c15b6013e33ec203d8281"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "429f518978ab01db8bb6f44b66785088e7fba58b"
+  revision = "1792d66dc88e503d3cb2400578221cdf1f7fe26f"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/tools"
   packages = ["go/gcexportdata","go/gcimporter15","go/types/typeutil"]
-  revision = "ae8cc594552814363a7aeeb4f2825515a771fa38"
+  revision = "8cab8a1319f0be9798e7fe78b15da75e5f94b2e9"
 
 [[projects]]
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+  revision = "c4a9fb418357aceb801272d73efd518f183700fa"
 
 [solve-meta]
   analyzer-name = "dep"
