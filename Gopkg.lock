@@ -10,8 +10,11 @@
 [[projects]]
   branch = "master"
   name = "github.com/golang/lint"
-  packages = [".","golint"]
-  revision = "f635bddafc7154957bd70209ee858a4b97e64a9b"
+  packages = [
+    ".",
+    "golint"
+  ]
+  revision = "e14d9b0f1d332b1420c1ffa32562ad2dc84d645d"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -28,32 +31,39 @@
 [[projects]]
   branch = "master"
   name = "github.com/tcnksm/go-holidayjp"
-  packages = [".","asset"]
+  packages = [
+    ".",
+    "asset"
+  ]
   revision = "1d8715d56f21c725fa31d0fbeaef171c757c14e0"
 
 [[projects]]
   branch = "master"
   name = "github.com/y-yagi/goext"
   packages = ["timeext"]
-  revision = "0c562708d18a124f202f8b4e7853a57943d9ee73"
+  revision = "fd0b1e87eb0981c2c24c15b6013e33ec203d8281"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "429f518978ab01db8bb6f44b66785088e7fba58b"
+  revision = "2493af8e3bc76234993370d82120c7e15ed4c95b"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/tools"
-  packages = ["go/gcexportdata","go/gcimporter15","go/types/typeutil"]
-  revision = "ae8cc594552814363a7aeeb4f2825515a771fa38"
+  packages = [
+    "go/gcexportdata",
+    "go/gcimporter15",
+    "go/types/typeutil"
+  ]
+  revision = "8cab8a1319f0be9798e7fe78b15da75e5f94b2e9"
 
 [[projects]]
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+  revision = "1244d3ce02e3e1c16820ada0bae506b6c479f106"
 
 [solve-meta]
   analyzer-name = "dep"
