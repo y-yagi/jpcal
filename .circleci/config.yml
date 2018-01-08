@@ -33,6 +33,7 @@ jobs:
       - run:
           name: Run ci-dep-update
           command: |
+            go get -u github.com/golang/dep/cmd/dep
             go get -u github.com/y-yagi/ci-dep-update
             ci-dep-update -u y-yagi -r y-yagi/jpcal
 
@@ -44,9 +45,9 @@ workflows:
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "25 * * * *"
+          cron: "5 * * * *"
           filters:
             branches:
-              only: master
+              only: cron_test
     jobs:
       - dep-update
