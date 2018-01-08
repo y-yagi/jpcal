@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.9
-
     working_directory: /go/src/github.com/y-yagi/jpcal
 
     steps:
@@ -24,24 +23,29 @@ jobs:
       - run:
           name: Run tests
           command: go test -v
-      - deploy:
-          name: Continuous dep update
-          command: |
-            go get -u github.com/y-yagi/ci-dep-update
-            ci-dep-update -u y-yagi -r y-yagi/jpcal
+  dep-update:
+    docker:
+      - image: circleci/golang:1.9
+    working_directory: /go/src/github.com/y-yagi/jpcal
+    name: Continuous dep update
+
+    steps:
+      - run:
+        name: Run ci-dep-update
+        command: |
+          go get -u github.com/y-yagi/ci-dep-update
+          ci-dep-update -u y-yagi -r y-yagi/jpcal
 
 workflows:
-  version: 2
-  build:
-    jobs:
-      - build:
-          # snip
-  nightly:
-    triggers:
-      - schedule:
-          cron: "00 10 * * 5"
-          filters:
-            branches:
-              only: master
-    jobs:
-      - continuous_dep_update
+   version: 2
+   nightly:
+     triggers:
+       - schedule:
+           cron: "0 0 * * *"
+           filters:
+             branches:
+               only:
+                 - master
+     jobs:
+      - dep-update
+
