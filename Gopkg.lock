@@ -47,7 +47,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "af50095a40f9041b3b38960738837185c26e9419"
+  revision = "ff2a66f350cefa5c93a634eadb5d25bb60c85a9c"
 
 [[projects]]
   branch = "master"
@@ -57,7 +57,7 @@
     "go/gcimporter15",
     "go/types/typeutil"
   ]
-  revision = "99037e3760ed7d9c772c980caee42b17779b80ce"
+  revision = "25101aadb97aa42907eee6a238d6d26a6cb3c756"
 
 [[projects]]
   branch = "v2"
