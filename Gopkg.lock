@@ -57,7 +57,7 @@
     "go/gcimporter15",
     "go/types/typeutil"
   ]
-  revision = "66487607e2081c7c2af2281c62c14ee000d5024b"
+  revision = "235755e1942ac8d38ab186a82e6fe154d39051ac"
 
 [[projects]]
   branch = "v2"
