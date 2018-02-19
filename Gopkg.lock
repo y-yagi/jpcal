@@ -4,8 +4,8 @@
 [[projects]]
   name = "github.com/fatih/color"
   packages = ["."]
-  revision = "570b54cabe6b8eb0bc2dfce68d964677d63b5260"
-  version = "v1.5.0"
+  revision = "507f6050b8568533fb3f5504de8e5205fa62a114"
+  version = "v1.6.0"
 
 [[projects]]
   branch = "master"
@@ -57,7 +57,7 @@
     "go/gcimporter15",
     "go/types/typeutil"
   ]
-  revision = "235755e1942ac8d38ab186a82e6fe154d39051ac"
+  revision = "ce871d178848e3eea1e8795e5cfb74053dde4bb9"
 
 [[projects]]
   branch = "v2"
