@@ -114,3 +114,47 @@ func TestRunWithSpecifyDate(t *testing.T) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)
 	}
 }
+
+func TestRunWithBeforeOpton(t *testing.T) {
+	out, err := new(bytes.Buffer), new(bytes.Buffer)
+	args := strings.Split("jpcal -B 2", " ")
+
+	status := run(args, out, err)
+	if status != 0 {
+		t.Errorf("Expect status is 0, but %d", status)
+	}
+
+	date := time.Now()
+	expected := fmt.Sprintf("%d年 %02d月", date.Year(), date.Month())
+	if !strings.Contains(out.String(), expected) {
+		t.Errorf("Expect out is %q, but %q", out.String(), expected)
+	}
+
+	date = date.AddDate(0, -1, 0)
+	expected = fmt.Sprintf("%d年 %02d月", date.Year(), date.Month())
+	if !strings.Contains(out.String(), expected) {
+		t.Errorf("Expect out is %q, but %q", out.String(), expected)
+	}
+}
+
+func TestRunWithAfterOpton(t *testing.T) {
+	out, err := new(bytes.Buffer), new(bytes.Buffer)
+	args := strings.Split("jpcal -A 2", " ")
+
+	status := run(args, out, err)
+	if status != 0 {
+		t.Errorf("Expect status is 0, but %d", status)
+	}
+
+	date := time.Now()
+	expected := fmt.Sprintf("%d年 %02d月", date.Year(), date.Month())
+	if !strings.Contains(out.String(), expected) {
+		t.Errorf("Expect out is %q, but %q", out.String(), expected)
+	}
+
+	date = date.AddDate(0, 1, 0)
+	expected = fmt.Sprintf("%d年 %02d月", date.Year(), date.Month())
+	if !strings.Contains(out.String(), expected) {
+		t.Errorf("Expect out is %q, but %q", out.String(), expected)
+	}
+}
