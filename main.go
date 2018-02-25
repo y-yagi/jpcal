@@ -99,7 +99,7 @@ func showAfterCalendar(number int, w io.Writer) {
 }
 
 func run(args []string, out, err io.Writer) int {
-	const version = "1.0.0"
+	const version = "1.0.1"
 
 	var showVersion bool
 	var specifyDate string
