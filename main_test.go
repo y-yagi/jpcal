@@ -19,7 +19,7 @@ func TestRunVersion(t *testing.T) {
 		t.Errorf("Expect status is 0, but %d", status)
 	}
 
-	expected := "version: 1.0.0"
+	expected := "version: 1.0.1"
 	if !strings.Contains(out.String(), expected) {
 		t.Errorf("Expect out is %q, but %q", out.String(), expected)
 	}
