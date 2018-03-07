@@ -10,11 +10,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/golang/lint"
-  packages = [
-    ".",
-    "golint"
-  ]
-  revision = "e14d9b0f1d332b1420c1ffa32562ad2dc84d645d"
+  packages = ["golint"]
+  revision = "fb4f8c1d3a179654f93ef7e91d68fc7b1de6e88f"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -45,9 +42,15 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/lint"
+  packages = ["."]
+  revision = "fb4f8c1d3a179654f93ef7e91d68fc7b1de6e88f"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "37707fdb30a5b38865cfb95e5aab41707daec7fd"
+  revision = "dd2ff4accc098aceecb86b36eaa7829b2a17b1c9"
 
 [[projects]]
   branch = "master"
@@ -57,13 +60,13 @@
     "go/gcimporter15",
     "go/types/typeutil"
   ]
-  revision = "ce871d178848e3eea1e8795e5cfb74053dde4bb9"
+  revision = "059bec968c61383b574810040ba9410712de36c5"
 
 [[projects]]
-  branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "d670f9405373e636a5a2765eea47fac0c9bc91a4"
+  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
+  version = "v2.1.1"
 
 [solve-meta]
   analyzer-name = "dep"
