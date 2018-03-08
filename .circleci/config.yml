@@ -1,28 +1,39 @@
 version: 2
+
+test: &test
+  steps:
+    - checkout
+    - run:
+        name : Run dep
+        command: |
+          go get -u github.com/golang/dep/cmd/dep
+          dep ensure
+    - run:
+        name: Run vet
+        command: go vet
+    - run:
+        name: Run lint
+        command: |
+          go build ./vendor/github.com/golang/lint/golint
+          ./golint -set_exit_status
+    - run:
+        name: Run tests
+        command: go test -v
+
 jobs:
-  build:
+  go-1.9-test:
     docker:
       - image: circleci/golang:1.9
     working_directory: /go/src/github.com/y-yagi/jpcal
+    <<: *test
 
-    steps:
-      - checkout
-      - run:
-          name : Run dep
-          command: |
-            go get -u github.com/golang/dep/cmd/dep
-            dep ensure
-      - run:
-          name: Run vet
-          command: go vet
-      - run:
-          name: Run lint
-          command: |
-            go build ./vendor/github.com/golang/lint/golint
-            ./golint -set_exit_status
-      - run:
-          name: Run tests
-          command: go test -v
+  go-1.10-test:
+    docker:
+      - image: circleci/golang:1.10
+    working_directory: /go/src/github.com/y-yagi/jpcal
+    <<: *test
+
+
   dep-update:
     docker:
       - image: circleci/golang:1.9
@@ -41,7 +52,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - go-1.9-test
+      - go-1.10-test
   scheduled-workflow:
     triggers:
       - schedule:
