@@ -50,7 +50,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "d8e400bc7db4870d786864138af681469693d18c"
+  revision = "13d03a9a82fba647c21a0ef8fba44a795d0f0835"
 
 [[projects]]
   branch = "master"
@@ -61,13 +61,13 @@
     "go/gcimporter15",
     "go/types/typeutil"
   ]
-  revision = "2226533658007779ffd629b495a088530c84dc50"
+  revision = "77106db15f689a60e7d4e085d967ac557b918fb2"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
-  version = "v2.1.1"
+  revision = "86f5ed62f8a0ee96bd888d2efdfd6d4fb100a4eb"
+  version = "v2.2.0"
 
 [solve-meta]
   analyzer-name = "dep"
