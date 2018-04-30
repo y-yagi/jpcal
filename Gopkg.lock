@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/golang/lint"
   packages = ["golint"]
-  revision = "85993ffd0a6cd043291f3f63d45d656d97b165bd"
+  revision = "470b6b0bb3005eda157f0275e2e4895055396a81"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -44,13 +44,13 @@
   branch = "master"
   name = "golang.org/x/lint"
   packages = ["."]
-  revision = "85993ffd0a6cd043291f3f63d45d656d97b165bd"
+  revision = "470b6b0bb3005eda157f0275e2e4895055396a81"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "79b0c6888797020a994db17c8510466c72fe75d9"
+  revision = "4adea008a5e5f820b6028611ae0b6b3fbcec534b"
 
 [[projects]]
   branch = "master"
@@ -61,7 +61,7 @@
     "go/internal/gcimporter",
     "go/types/typeutil"
   ]
-  revision = "c1def519f03ddf76f16b3e444ee1095d73afa01b"
+  revision = "165bdd618e6d174c61ee7bd73a28f3e5c6fdced1"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
