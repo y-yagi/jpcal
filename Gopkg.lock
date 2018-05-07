@@ -50,7 +50,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "4adea008a5e5f820b6028611ae0b6b3fbcec534b"
+  revision = "7db1c3b1a98089d0071c84f646ff5c96aad43682"
 
 [[projects]]
   branch = "master"
@@ -61,7 +61,7 @@
     "go/internal/gcimporter",
     "go/types/typeutil"
   ]
-  revision = "165bdd618e6d174c61ee7bd73a28f3e5c6fdced1"
+  revision = "87723262609ca8fd55d449c027454c29cadefd68"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
