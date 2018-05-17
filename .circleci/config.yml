@@ -17,6 +17,11 @@ test: &test
           go build ./vendor/github.com/golang/lint/golint
           ./golint -set_exit_status
     - run:
+        name: Run megacheck
+        command: |
+          go build ./vendor/honnef.co/go/tools/cmd/megacheck
+          ./megacheck
+    - run:
         name: Run tests
         command: go test -v
 
