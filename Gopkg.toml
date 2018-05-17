@@ -1,4 +1,4 @@
-required = ["github.com/golang/lint/golint"]
+required = ["github.com/golang/lint/golint", "honnef.co/go/tools/cmd/megacheck"]
 
 [[constraint]]
   name = "github.com/fatih/color"

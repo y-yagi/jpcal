@@ -14,6 +14,15 @@
   revision = "470b6b0bb3005eda157f0275e2e4895055396a81"
 
 [[projects]]
+  name = "github.com/kisielk/gotool"
+  packages = [
+    ".",
+    "internal/load"
+  ]
+  revision = "80517062f582ea3340cd4baf70e86d539ae7d84d"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
@@ -57,8 +66,10 @@
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
+    "go/buildutil",
     "go/gcexportdata",
     "go/internal/gcimporter",
+    "go/loader",
     "go/types/typeutil"
   ]
   revision = "87723262609ca8fd55d449c027454c29cadefd68"
@@ -69,9 +80,31 @@
   revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
   version = "v2.2.1"
 
+[[projects]]
+  name = "honnef.co/go/tools"
+  packages = [
+    "callgraph",
+    "callgraph/static",
+    "cmd/megacheck",
+    "deprecated",
+    "functions",
+    "internal/sharedcheck",
+    "lint",
+    "lint/lintutil",
+    "simple",
+    "ssa",
+    "ssa/ssautil",
+    "staticcheck",
+    "staticcheck/vrp",
+    "unused",
+    "version"
+  ]
+  revision = "d73ab98e7c39fdcf9ba65062e43d34310f198353"
+  version = "2017.2.2"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a129df16ede06be8a70fd65fbd1420bc62407300801ddd70c6ec9c44feeaca16"
+  inputs-digest = "d5a014f0b9f3a83d06c46baace56ceb8c06219770a52f9bc9f0cfb8d23d9a20d"
   solver-name = "gps-cdcl"
   solver-version = 1
