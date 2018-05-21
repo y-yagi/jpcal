@@ -4,8 +4,8 @@
 [[projects]]
   name = "github.com/fatih/color"
   packages = ["."]
-  revision = "507f6050b8568533fb3f5504de8e5205fa62a114"
-  version = "v1.6.0"
+  revision = "5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4"
+  version = "v1.7.0"
 
 [[projects]]
   branch = "master"
@@ -59,7 +59,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "7db1c3b1a98089d0071c84f646ff5c96aad43682"
+  revision = "7c87d13f8e835d2fb3a70a2912c811ed0c1d241b"
 
 [[projects]]
   branch = "master"
@@ -72,7 +72,7 @@
     "go/loader",
     "go/types/typeutil"
   ]
-  revision = "87723262609ca8fd55d449c027454c29cadefd68"
+  revision = "28aef64757f4d432485ab970b094e1af8b301e84"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
