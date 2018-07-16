@@ -6,7 +6,7 @@ test: &test
     - run:
         name : Run dep
         command: |
-          go get -u github.com/golang/dep/cmd/dep
+          curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
           dep ensure
     - run:
         name: Run vet
@@ -49,8 +49,10 @@ jobs:
       - run:
           name: Run ci-dep-update
           command: |
-            go get -u github.com/golang/dep/cmd/dep
-            go get -u github.com/y-yagi/ci-dep-update
+            go get -d github.com/y-yagi/ci-dep-update
+            cd $GOPATH/src/github.com/y-yagi/ci-dep-update
+            dep ensure -vendor-only
+            go install
             ci-dep-update -u y-yagi -r y-yagi/jpcal
 
 workflows:
