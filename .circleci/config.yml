@@ -26,22 +26,21 @@ test: &test
         command: go test -v
 
 jobs:
-  go-1.9-test:
-    docker:
-      - image: circleci/golang:1.9
-    working_directory: /go/src/github.com/y-yagi/jpcal
-    <<: *test
-
   go-1.10-test:
     docker:
       - image: circleci/golang:1.10
     working_directory: /go/src/github.com/y-yagi/jpcal
     <<: *test
 
+  go-1.11-test:
+    docker:
+      - image: circleci/golang:1.11
+    working_directory: /go/src/github.com/y-yagi/jpcal
+    <<: *test
 
   dep-update:
     docker:
-      - image: circleci/golang:1.9
+      - image: circleci/golang:1.11
     working_directory: /go/src/github.com/y-yagi/jpcal
 
     steps:
@@ -59,8 +58,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - go-1.9-test
       - go-1.10-test
+      - go-1.11-test
   scheduled-workflow:
     triggers:
       - schedule:
