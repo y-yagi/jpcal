@@ -73,7 +73,7 @@ func (calendar *Calendar) Generate(date time.Time) {
 	lastDate := timeext.EndOfMonth(date)
 
 	wday := int(firstDate.Weekday())
-	calendar.Body[0] += fmt.Sprintf("%s", strings.Repeat(daySpace, wday))
+	calendar.Body[0] += strings.Repeat(daySpace, wday)
 
 	line := 0
 
@@ -88,11 +88,11 @@ func (calendar *Calendar) Generate(date time.Time) {
 	}
 
 	wday = int(lastDate.Weekday())
-	calendar.Body[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 6-wday))
+	calendar.Body[line] += strings.Repeat(daySpace, 6-wday)
 	calendar.adjustSpace(line)
 
 	for line++; line < len(calendar.Body); line++ {
-		calendar.Body[line] += fmt.Sprintf("%s", strings.Repeat(daySpace, 7))
+		calendar.Body[line] += strings.Repeat(daySpace, 7)
 	}
 	calendar.adjustSpace(line - 1)
 }
