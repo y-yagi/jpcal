@@ -37,12 +37,12 @@
   version = "v0.0.9"
 
 [[projects]]
-  digest = "1:78229b46ddb7434f881390029bd1af7661294af31f6802e0e1bedaad4ab0af3c"
+  digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   pruneopts = ""
-  revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
-  version = "v0.0.3"
+  revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
+  version = "v0.0.4"
 
 [[projects]]
   branch = "master"
@@ -73,26 +73,27 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:469d265422d3992c7af23257fb8198d4d9348156b73ea89ae56d8117d4b89005"
+  digest = "1:85fab7aaca4239017b02462635379f0b2203ab47961216c8e64b5fb48601ab4f"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = ""
-  revision = "3dc4335d56c789b04b0ba99b7a37249d9b614314"
+  revision = "fa5fdf94c78965f1aa8423f0cc50b8b8d728b05a"
 
 [[projects]]
   branch = "master"
-  digest = "1:d93dde5256d3875d080338c5e391f887f77bc6fa86044b98d1fa551c0c9b0175"
+  digest = "1:1f1708d4c68aa8bbf117ce8d1f33cd6028fefb70e5d68aafa6b4a1a503ea5774"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "go/buildutil",
     "go/gcexportdata",
+    "go/internal/cgo",
     "go/internal/gcimporter",
     "go/loader",
     "go/types/typeutil",
   ]
   pruneopts = ""
-  revision = "1801cb7c1535809b97bb6628791b3fb0df73476e"
+  revision = "7ca132754999accbaa5c1735eda29e7ce0f3bf03"
 
 [[projects]]
   digest = "1:f0620375dd1f6251d9973b5f2596228cc8042e887cd7f827e4220bc1ce8c30e2"
