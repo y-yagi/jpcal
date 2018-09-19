@@ -1,7 +1,5 @@
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
-github.com/golang/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:tluoj9z5200jBnyusfRPU2LqT6J+DAorxEvtC7LHB+E=
-github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/mattn/go-colorable v0.0.9 h1:UVL0vNpWh04HeJXV0KLcaT7r06gOH2l4OW6ddYRUIY4=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-isatty v0.0.4 h1:bnP0vzxcAdeI1zdubAl5PjU6zsERjGZb7raWodagDYs=
@@ -10,12 +8,9 @@ github.com/tcnksm/go-holidayjp v0.0.0-20160512024848-1d8715d56f21 h1:AOWnEOWZxwc
 github.com/tcnksm/go-holidayjp v0.0.0-20160512024848-1d8715d56f21/go.mod h1:yOLK5lb1TOPvliZQndObYghZFPf7t1hReSfKwdXV62c=
 github.com/y-yagi/goext v0.0.0-20180101053636-fd0b1e87eb09 h1:+OySUSDfvBA55pvVC1g5HHOf8mlYRnhek+QqRQPJpVg=
 github.com/y-yagi/goext v0.0.0-20180101053636-fd0b1e87eb09/go.mod h1:ny3voMiQkmfJ+v/ojY5N9aqzMC1Id3If0BtoVKA9AwQ=
-golang.org/x/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
 golang.org/x/sys v0.0.0-20180831094639-fa5fdf94c789 h1:T8D7l6WB3tLu+VpKvw06ieD/OhBi1XpJmG1U/FtttZg=
 golang.org/x/sys v0.0.0-20180831094639-fa5fdf94c789/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
-golang.org/x/tools v0.0.0-20180831211245-7ca132754999/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.1 h1:mUhvW9EsL+naU5Q3cakzfE91YhliOondGd6ZrsDBHQE=
 gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
-honnef.co/go/tools v0.0.0-20180110233758-d73ab98e7c39/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=
