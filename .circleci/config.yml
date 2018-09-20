@@ -52,6 +52,7 @@ jobs:
             cd $GOPATH/src/github.com/y-yagi/ci-dep-update
             dep ensure -vendor-only
             go install
+            cd /go/src/github.com/y-yagi/jpcal
             ci-dep-update -u y-yagi -r y-yagi/jpcal
 
 workflows:
