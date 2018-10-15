@@ -10,12 +10,15 @@
   version = "v1.7.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:923a8d648a9b95dcfe444204d4f2b2df2ec7f2fa48fb4a705ffef7c5d3541211"
+  branch = "travis-1.9"
+  digest = "1:d45f5fe0f8bf6cd0bc592502e7e8ec647d769e55387fe326eb624d67282a7d15"
   name = "github.com/golang/lint"
-  packages = ["golint"]
+  packages = [
+    ".",
+    "golint",
+  ]
   pruneopts = ""
-  revision = "06c8688daad7faa9da5a0c2f163a3d14aac986ca"
+  revision = "883fe33ffc4344bad1ecd881f61afd5ec5d80e0a"
 
 [[projects]]
   digest = "1:765270f95ea68ad2150f6143eb8b9c0c17b038a7e2255b46580674471af00e27"
@@ -65,23 +68,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:923a8d648a9b95dcfe444204d4f2b2df2ec7f2fa48fb4a705ffef7c5d3541211"
-  name = "golang.org/x/lint"
-  packages = ["."]
-  pruneopts = ""
-  revision = "06c8688daad7faa9da5a0c2f163a3d14aac986ca"
-
-[[projects]]
-  branch = "master"
-  digest = "1:a4bda6e065eb3ccf1e6adeaa863cb416e0ae6b43e613f20a8931d52d19dc20e2"
+  digest = "1:2ed0bf267e44950120acd95570227e28184573ffb099bd85b529ee148e004ddb"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = ""
-  revision = "4497e2df6f9e69048a54498c7affbbec3294ad47"
+  revision = "fa43e7bc11baaae89f3f902b2b4d832b68234844"
 
 [[projects]]
   branch = "master"
-  digest = "1:e577de0714b2661bad588dcfe261636494af41d6aaa669ef2afd06ccfc958f3f"
+  digest = "1:804d1c15c1dd741ed80b32187a515904684a7956286132560e937a4a3ec531b9"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
@@ -93,7 +88,7 @@
     "go/types/typeutil",
   ]
   pruneopts = ""
-  revision = "a2b3f7f249e90c6fe7ca632df1cbbb6fd73c0cfa"
+  revision = "91ec7db2f84a6830ff144bd0cf14f8f47ecc152f"
 
 [[projects]]
   digest = "1:f0620375dd1f6251d9973b5f2596228cc8042e887cd7f827e4220bc1ce8c30e2"
