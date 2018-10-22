@@ -68,15 +68,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:2ed0bf267e44950120acd95570227e28184573ffb099bd85b529ee148e004ddb"
+  digest = "1:03a1b1f2bfb0a6b2291c4161032429b1e8a1f23cc68530ad64358f8b493ead5f"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = ""
-  revision = "fa43e7bc11baaae89f3f902b2b4d832b68234844"
+  revision = "8a28ead16f52c8aaeffbf79239b251dfdf6c4f96"
 
 [[projects]]
   branch = "master"
-  digest = "1:804d1c15c1dd741ed80b32187a515904684a7956286132560e937a4a3ec531b9"
+  digest = "1:746a616ef2880041662cbe6e205a969b549513677b50d006e33b0b22026810ed"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
@@ -88,7 +88,7 @@
     "go/types/typeutil",
   ]
   pruneopts = ""
-  revision = "91ec7db2f84a6830ff144bd0cf14f8f47ecc152f"
+  revision = "9650c66da3ff428b355c9b29c8a5ca02bd026f3d"
 
 [[projects]]
   digest = "1:f0620375dd1f6251d9973b5f2596228cc8042e887cd7f827e4220bc1ce8c30e2"
