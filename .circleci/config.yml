@@ -16,7 +16,7 @@ test: &test
         name: Run lint
         command: |
           go get -u github.com/golang/lint/golint
-          golint -set_exit_status ./...
+          golint -set_exit_status $(go list ./... | grep -v /vendor/)
     - run:
         name: Run megacheck
         command: |
