@@ -3,63 +3,59 @@ version: 2
 test: &test
   steps:
     - checkout
+
     - run:
-        name : Run dep
+        name: Run go mod
         command: |
-          curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-          dep ensure
+          go mod download
+          go mod vendor
     - run:
         name: Run vet
         command: go vet
     - run:
         name: Run lint
         command: |
-          go build ./vendor/github.com/golang/lint/golint
-          ./golint -set_exit_status
+          go get -u github.com/golang/lint/golint
+          golint -set_exit_status ./...
     - run:
         name: Run megacheck
         command: |
-          go build ./vendor/honnef.co/go/tools/cmd/megacheck
-          ./megacheck
+          go get -u honnef.co/go/tools/cmd/megacheck
+          GO111MODULE=off megacheck ./...
     - run:
         name: Run tests
         command: go test -v
 
 jobs:
-  go-1.10-test:
-    docker:
-      - image: circleci/golang:1.10
-    working_directory: /go/src/github.com/y-yagi/jpcal
-    <<: *test
-
   go-1.11-test:
     docker:
       - image: circleci/golang:1.11
+        environment:
+          GO111MODULE: "on"
     working_directory: /go/src/github.com/y-yagi/jpcal
     <<: *test
 
-  dep-update:
+  modules-update:
     docker:
       - image: circleci/golang:1.11
+        environment:
+          GO111MODULE: "on"
     working_directory: /go/src/github.com/y-yagi/jpcal
 
     steps:
       - checkout
       - run:
-          name: Run ci-dep-update
+          name: Run ci-modules-update
           command: |
-            go get -d github.com/y-yagi/ci-dep-update
-            cd $GOPATH/src/github.com/y-yagi/ci-dep-update
-            dep ensure -vendor-only
-            go install
-            cd /go/src/github.com/y-yagi/jpcal
-            ci-dep-update -u y-yagi -r y-yagi/jpcal
+            GO111MODULE=off go get -u github.com/y-yagi/ci-modules-update
+            ci-modules-update -u y-yagi -r y-yagi/jpcal
+
+workflows:
 
 workflows:
   version: 2
   build:
     jobs:
-      - go-1.10-test
       - go-1.11-test
   scheduled-workflow:
     triggers:
@@ -69,4 +65,4 @@ workflows:
             branches:
               only: master
     jobs:
-      - dep-update
+      - modules-update
