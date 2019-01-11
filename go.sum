@@ -9,12 +9,12 @@ github.com/mattn/go-colorable v0.0.9 h1:UVL0vNpWh04HeJXV0KLcaT7r06gOH2l4OW6ddYRU
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-isatty v0.0.4 h1:bnP0vzxcAdeI1zdubAl5PjU6zsERjGZb7raWodagDYs=
 github.com/mattn/go-isatty v0.0.4/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
-github.com/tcnksm/go-holidayjp v0.0.0-20160512024848-1d8715d56f21 h1:AOWnEOWZxwcDQZP/5b49diU02oi/u0ydODuLI5XxzDY=
-github.com/tcnksm/go-holidayjp v0.0.0-20160512024848-1d8715d56f21/go.mod h1:yOLK5lb1TOPvliZQndObYghZFPf7t1hReSfKwdXV62c=
+github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a h1:zoA9pJMUIxRqEFndLNT1ScvzmBBrmk4GucVhq3ND1Rw=
+github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a/go.mod h1:yOLK5lb1TOPvliZQndObYghZFPf7t1hReSfKwdXV62c=
 github.com/y-yagi/goext v0.1.0 h1:IzQ/S1AbrAb2R1XiXwKhjDIw6VsSWOREfihLNZqgwyU=
 github.com/y-yagi/goext v0.1.0/go.mod h1:ny3voMiQkmfJ+v/ojY5N9aqzMC1Id3If0BtoVKA9AwQ=
-golang.org/x/sys v0.0.0-20190107173414-20be8e55dc7b h1:9Gu1sMPgKHo+qCbPa2jN5A54ro2gY99BWF7nHOBNVME=
-golang.org/x/sys v0.0.0-20190107173414-20be8e55dc7b/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+golang.org/x/sys v0.0.0-20190109145017-48ac38b7c8cb h1:1w588/yEchbPNpa9sEvOcMZYbWHedwJjg4VOAdDHWHk=
+golang.org/x/sys v0.0.0-20190109145017-48ac38b7c8cb/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
