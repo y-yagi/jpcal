@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"github.com/y-yagi/go-holidayjp"
+	"github.com/tcnksm/go-holidayjp"
 	"github.com/y-yagi/goext/timeext"
 )
 
