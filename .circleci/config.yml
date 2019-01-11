@@ -18,10 +18,10 @@ test: &test
           go get -u github.com/golang/lint/golint
           golint -set_exit_status $(go list ./... | grep -v /vendor/)
     - run:
-        name: Run megacheck
+        name: Run staticcheck
         command: |
-          go get -u honnef.co/go/tools/cmd/megacheck
-          GO111MODULE=off megacheck ./...
+          go get -u honnef.co/go/tools/cmd/staticcheck
+          GO111MODULE=off staticcheck ./...
     - run:
         name: Run tests
         command: go test -v
