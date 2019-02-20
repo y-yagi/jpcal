@@ -13,8 +13,8 @@ github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a h1:zoA9pJMUIxR
 github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a/go.mod h1:yOLK5lb1TOPvliZQndObYghZFPf7t1hReSfKwdXV62c=
 github.com/y-yagi/goext v0.1.0 h1:IzQ/S1AbrAb2R1XiXwKhjDIw6VsSWOREfihLNZqgwyU=
 github.com/y-yagi/goext v0.1.0/go.mod h1:ny3voMiQkmfJ+v/ojY5N9aqzMC1Id3If0BtoVKA9AwQ=
-golang.org/x/sys v0.0.0-20190209173611-3b5209105503 h1:5SvYFrOM3W8Mexn9/oA44Ji7vhXAZQ9hiP+1Q/DMrWg=
-golang.org/x/sys v0.0.0-20190209173611-3b5209105503/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a h1:1BGLXjeY4akVXGgbC9HugT3Jv3hCI0z56oJR5vAMgBU=
+golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
