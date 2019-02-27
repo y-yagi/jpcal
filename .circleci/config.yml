@@ -29,7 +29,15 @@ test: &test
 jobs:
   go-1.11-test:
     docker:
-      - image: circleci/golang:1.11
+      - image: golang:1.11-stretch
+        environment:
+          GO111MODULE: "on"
+    working_directory: /go/src/github.com/y-yagi/jpcal
+    <<: *test
+
+  go-1.12-test:
+    docker:
+      - image: golang:1.12-stretch
         environment:
           GO111MODULE: "on"
     working_directory: /go/src/github.com/y-yagi/jpcal
@@ -37,7 +45,7 @@ jobs:
 
   modules-update:
     docker:
-      - image: circleci/golang:1.11
+      - image: golang:1.11-stretch
         environment:
           GO111MODULE: "on"
     working_directory: /go/src/github.com/y-yagi/jpcal
@@ -57,6 +65,7 @@ workflows:
   build:
     jobs:
       - go-1.11-test
+      - go-1.12-test
   scheduled-workflow:
     triggers:
       - schedule:
