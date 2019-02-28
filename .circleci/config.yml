@@ -59,8 +59,6 @@ jobs:
             ci-modules-update -u y-yagi -r y-yagi/jpcal
 
 workflows:
-
-workflows:
   version: 2
   build:
     jobs:
