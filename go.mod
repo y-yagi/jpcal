@@ -7,7 +7,7 @@ require (
 	github.com/mattn/go-isatty v0.0.7 // indirect
 	github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a
 	github.com/y-yagi/goext v0.1.0
-	golang.org/x/sys v0.0.0-20190429190828-d89cdac9e872 // indirect
+	golang.org/x/sys v0.0.0-20190506115046-ca7f33d4116e // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
