@@ -43,33 +43,9 @@ jobs:
     working_directory: /go/src/github.com/y-yagi/jpcal
     <<: *test
 
-  modules-update:
-    docker:
-      - image: golang:1.11-stretch
-        environment:
-          GO111MODULE: "on"
-    working_directory: /go/src/github.com/y-yagi/jpcal
-
-    steps:
-      - checkout
-      - run:
-          name: Run ci-modules-update
-          command: |
-            GO111MODULE=off go get -u github.com/y-yagi/ci-modules-update
-            ci-modules-update -u y-yagi -r y-yagi/jpcal
-
 workflows:
   version: 2
   build:
     jobs:
       - go-1.11-test
       - go-1.12-test
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "0 22 * * 1"
-          filters:
-            branches:
-              only: master
-    jobs:
-      - modules-update
