@@ -16,6 +16,8 @@ github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a h1:zoA9pJMUIxR
 github.com/tcnksm/go-holidayjp v0.0.0-20190110062552-30fb5658ea9a/go.mod h1:yOLK5lb1TOPvliZQndObYghZFPf7t1hReSfKwdXV62c=
 github.com/y-yagi/goext v0.3.0 h1:RV/o/+FSP83KG07odww/7JwSe6EIkwBINqrby5m7EvE=
 github.com/y-yagi/goext v0.3.0/go.mod h1:0OhjQ0asZ5akCui3QgCkDjNHHu8y37LJv2WX/CY24Sg=
+github.com/y-yagi/goext v0.4.0 h1:49OJwAG+lQSDikAYY6GWlmgOGbAaLuJKCugbmyTmwnM=
+github.com/y-yagi/goext v0.4.0/go.mod h1:0OhjQ0asZ5akCui3QgCkDjNHHu8y37LJv2WX/CY24Sg=
 golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20191008105621-543471e840be/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191104094858-e8c54fb511f6 h1:ZJUmhYTp8GbGC0ViZRc2U+MIYQ8xx9MscsdXnclfIhw=
