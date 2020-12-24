@@ -27,7 +27,7 @@ test: &test
         command: go test -v
 
 jobs:
-  go-1.13-test:
+  go-1.15-test:
     docker:
       - image: golang:1.15-stretch
         environment:
