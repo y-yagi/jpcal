@@ -2,8 +2,6 @@
 
 `jpcal` is a simple calendar command. It contains a Japanese holidays.
 
-[![CircleCI](https://circleci.com/gh/y-yagi/jpcal.svg?style=svg)](https://circleci.com/gh/y-yagi/jpcal)
-
 ## Installation
 
 Use `go get` to install this package:
