@@ -1,5 +1,7 @@
 module github.com/y-yagi/jpcal
 
+go 1.15
+
 require (
 	github.com/fatih/color v1.10.0
 	github.com/kr/pretty v0.1.0 // indirect
