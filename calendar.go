@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"github.com/tcnksm/go-holidayjp"
+	holiday "github.com/holiday-jp/holiday_jp-go"
 	"github.com/y-yagi/goext/timeext"
 )
 
@@ -41,8 +41,7 @@ func (calendar *Calendar) decoratedDate(date time.Time) string {
 		space = " "
 	}
 
-	_, err := holidayjp.Holiday(date)
-	if err == nil {
+	if holiday.IsHoliday(date) {
 		decoratedDate = red(date.Day())
 	} else if date.Weekday().String() == "Sunday" {
 		decoratedDate = red(date.Day())
