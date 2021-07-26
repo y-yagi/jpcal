@@ -11,6 +11,10 @@ import (
 	"github.com/y-yagi/goext/timeext"
 )
 
+var (
+	version = "devel"
+)
+
 func showYearCalendar(specifyYear string, w io.Writer) {
 	var calendar Calendar
 	date := time.Now()
@@ -99,8 +103,6 @@ func showAfterCalendar(number int, w io.Writer) {
 }
 
 func run(args []string, out, err io.Writer) int {
-	const version = "1.0.1"
-
 	var showVersion bool
 	var specifyDate string
 	var showYear bool
