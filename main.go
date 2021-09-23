@@ -17,7 +17,6 @@ var (
 
 func showYearCalendar(specifyYear string, w io.Writer) {
 	var calendar Calendar
-	date := time.Now()
 
 	year, err := time.Parse("2006", specifyYear)
 	if err != nil {
@@ -26,7 +25,7 @@ func showYearCalendar(specifyYear string, w io.Writer) {
 	}
 
 	for i := 1; i < 13; i++ {
-		date = time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
+		date := time.Date(year.Year(), time.Month(i), 1, 0, 0, 0, 0, time.Local)
 		calendar.Generate(date)
 
 		if i%3 == 0 {
