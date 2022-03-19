@@ -4,16 +4,10 @@ go 1.18
 
 require (
 	github.com/fatih/color v1.13.0
-	github.com/holiday-jp/holiday_jp-go v0.0.0-20201220151532-3a823f759834
-	github.com/kr/pretty v0.1.0 // indirect
+	github.com/holiday-jp/holiday_jp-go v0.0.0-20220125203534-53124b4cc19c
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/y-yagi/goext v0.6.0
-	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
-	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
+	golang.org/x/sys v0.0.0-20220318055525-2edf467146b5 // indirect
 )
 
-require (
-	github.com/mattn/go-colorable v0.1.9 // indirect
-	github.com/rakyll/statik v0.1.1 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
-)
+require github.com/mattn/go-colorable v0.1.12 // indirect
