@@ -87,7 +87,11 @@ func (calendar *Calendar) Generate(date time.Time) {
 	}
 
 	wday = int(lastDate.Weekday())
-	calendar.Body[line] += strings.Repeat(daySpace, 6-wday)
+	if wday == 6 && line == 4 {
+		calendar.Body[line] += strings.Repeat(daySpace, 7)
+	} else {
+		calendar.Body[line] += strings.Repeat(daySpace, 6-wday)
+	}
 	calendar.adjustSpace(line)
 
 	for line++; line < len(calendar.Body); line++ {
