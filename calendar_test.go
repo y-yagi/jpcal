@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 	"time"
 )
@@ -43,6 +44,47 @@ func TestGenerate(t *testing.T) {
 	}
 
 	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("25"), "26", "27", "28", "29", "30", "  ")
+	if calendar.Body[4] != expect {
+		t.Errorf("Expect calendar.Body[4] is %s, but %s", expect, calendar.Body[4])
+	}
+}
+
+func TestGenerate_fitsOnFourLines(t *testing.T) {
+	var calendar Calendar
+	date, _ := time.Parse("2006-01-02", "2026-02-01")
+	calendar.Generate(date)
+
+	expect := "     2026年 02月       "
+	if calendar.DateHeader != expect {
+		t.Errorf("Expect calendar.DateHeader is %s, but %s", expect, calendar.DateHeader)
+	}
+
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("日"), "月", "火", "水", "木", "金", blue("土"))
+	if calendar.WeekHeader != expect {
+		t.Errorf("Expect calendar.WeekHeader is %s, but %s", expect, calendar.WeekHeader)
+	}
+
+	expect = fmt.Sprintf(" %s  %s  %s  %s  %s  %s  %s   ", red("1"), "2", "3", "4", "5", "6", blue("7"))
+	if calendar.Body[0] != expect {
+		t.Errorf("Expect calendar.Body[0] is %s, but %s", expect, calendar.Body[0])
+	}
+
+	expect = fmt.Sprintf(" %s  %s %s %s %s %s %s   ", red("8"), "9", "10", red("11"), "12", "13", blue("14"))
+	if calendar.Body[1] != expect {
+		t.Errorf("Expect calendar.Body[1] is %s, but %s", expect, calendar.Body[1])
+	}
+
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("15"), "16", "17", "18", "19", "20", blue("21"))
+	if calendar.Body[2] != expect {
+		t.Errorf("Expect calendar.Body[2] is %s, but %s", expect, calendar.Body[2])
+	}
+
+	expect = fmt.Sprintf("%s %s %s %s %s %s %s   ", red("22"), "23", "24", "25", "26", "27", blue("28"))
+	if calendar.Body[3] != expect {
+		t.Errorf("Expect calendar.Body[3] is %s, but %s", expect, calendar.Body[3])
+	}
+
+	expect = strings.Repeat(" ", 23)
 	if calendar.Body[4] != expect {
 		t.Errorf("Expect calendar.Body[4] is %s, but %s", expect, calendar.Body[4])
 	}
