@@ -102,10 +102,10 @@ func (calendar *Calendar) Generate(date time.Time) {
 
 // Show calendar
 func (calendar *Calendar) Show(w io.Writer) {
-	fmt.Fprintf(w, calendar.DateHeader+"\n")
-	fmt.Fprintf(w, calendar.WeekHeader+"\n")
+	fmt.Fprint(w, calendar.DateHeader+"\n")
+	fmt.Fprint(w, calendar.WeekHeader+"\n")
 	for _, element := range calendar.Body {
-		fmt.Fprintf(w, element+"\n")
+		fmt.Fprint(w, element+"\n")
 	}
 }
 
