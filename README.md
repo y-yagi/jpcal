@@ -4,7 +4,7 @@
 
 ## Installation
 
-Use `go get` to install this package:
+Use `go install` to install this package:
 
 ```bash
 $ go install github.com/y-yagi/jpcal
